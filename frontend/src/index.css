@@ -92,3 +92,129 @@ textarea:not([rows]) {
 }
 
 /*************************** CSS RESET END **************************/
+
+/* FONTS */
+
+@font-face {
+  font-family: "Volte";
+  src:
+    url("./assets/fonts/Volte-Light.woff2") format("woff2"),
+    url("./assets/fonts/Volte-Light.woff") format("woff");
+  font-weight: 300; /* Use numeric value for 'light' */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Volte";
+  src:
+    url("./assets/fonts/Volte-BoldItalic.woff2") format("woff2"),
+    url("./assets/fonts/Volte-BoldItalic.woff") format("woff");
+  font-weight: 700; /* Correct numeric value for 'bold' */
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Volte";
+  src:
+    url("./assets/fonts/Volte-LightItalic.woff2") format("woff2"),
+    url("./assets/fonts/Volte-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Volte";
+  src:
+    url("./assets/fonts/Volte-SemiboldItalic.woff2") format("woff2"),
+    url("./assets/fonts/Volte-SemiboldItalic.woff") format("woff");
+  font-weight: 600; /* Correct numeric value for 'semibold' */
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Volte";
+  src:
+    url("./assets/fonts/Volte-Bold.woff2") format("woff2"),
+    url("./assets/fonts/Volte-Bold.woff") format("woff"); /* Fixed duplicate woff2 */
+  font-weight: 700; /* Correct numeric value for 'bold' */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Volte";
+  src:
+    url("./assets/fonts/Volte-Medium.woff2") format("woff2"),
+    url("./assets/fonts/Volte-Medium.woff") format("woff");
+  font-weight: 500; /* Correct numeric value for 'medium' */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Volte";
+  src:
+    url("./assets/fonts/Volte-MediumItalic.woff2") format("woff2"),
+    url("./assets/fonts/Volte-MediumItalic.woff") format("woff");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Volte";
+  src:
+    url("./assets/fonts/Volte-Regular.woff2") format("woff2"),
+    url("./assets/fonts/Volte-Regular.woff") format("woff");
+  font-weight: 400; /* Correct numeric value for 'regular' */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Volte";
+  src:
+    url("./assets/fonts/Volte-RegularItalic.woff2") format("woff2"),
+    url("./assets/fonts/Volte-RegularItalic.woff") format("woff");
+  font-weight: 400; /* Use numeric value for 'regular' */
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Volte";
+  src:
+    url("./assets/fonts/Volte-Semibold.woff2") format("woff2"),
+    url("./assets/fonts/Volte-Semibold.woff") format("woff");
+  font-weight: 600; /* Correct numeric value for 'semibold' */
+  font-style: normal;
+  font-display: swap;
+}
+
+/** END FONTS DECLERATION **/
+
+/** GLOBAL VARIABLES **/
+:root {
+  --color-cream: #f5f2ea;
+  --color-blue: #1850dc;
+  --color-black: #1f1a13;
+  --color-white: #ffffff;
+  --color-lightblue: #d2ddfc;
+  --color-orange: #e8a946;
+  --color-green: #229239;
+  --color-darkblue: #191446;
+  --color-red: #d04e3a;
+}
+
+body {
+  background-color: var(--color-cream);
+  height: 500vh;
+  overflow-x: hidden;
+}
+.body-container {
+  padding: 2rem;
+}

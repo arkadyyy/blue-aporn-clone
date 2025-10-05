@@ -1,0 +1,98 @@
+.reviews_container {
+  background-color: var(--color-orange);
+  width: 100vw;
+  padding: 2rem;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-bottom: 8rem;
+  position: relative;
+}
+.svg_standing {
+  position: absolute;
+  right: 20px;
+  top: -10rem;
+}
+.reviews_heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  padding-inline: 4rem;
+}
+.header_label {
+  font-family: "Volte";
+  font-size: 1em;
+  letter-spacing: 0.2em;
+  font-weight: 500;
+}
+.header {
+  font-size: 3em;
+  margin-top: 0.2em;
+}
+.review_nav_btn {
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 50%;
+  padding: 1rem;
+  border: none;
+  cursor: pointer;
+  display: grid;
+  place-content: center;
+  background-color: var(--color-white);
+}
+.review_nav_btn:disabled {
+  background-color: rgba(255, 224, 224, 0.3);
+}
+.reviews_buttons_container {
+  display: flex;
+  gap: 24px;
+}
+.reviews_cards_container {
+  display: flex;
+  gap: 24px;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  transition: transform 0.6s ease-in-out;
+  width: calc((100% * 2) + 100px); /* enough to fit all slides */
+}
+
+.reviews_card_review {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  border-radius: 1rem;
+  padding: 1rem;
+  width: 2rem;
+  flex: 0 0 calc(100% / 6);
+  box-sizing: border-box;
+}
+
+/* stars container */
+.reviews_card_review > div {
+  display: flex;
+  gap: 8px;
+}
+/* star itself */
+.reviews_card_review > div > img {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* === Slider layout === */
+.reviews_slider_wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+/* wrap the cards so we can hide overflow */
+.reviews_slider_wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+/* make it responsive (optional) */
+@media (max-width: 768px) {
+  .reviews_card_review {
+    flex: 0 0 100%;
+  }
+}
