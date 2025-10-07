@@ -212,9 +212,8 @@ textarea:not([rows]) {
 
 body {
   background-color: var(--color-cream);
-  height: 500vh;
   overflow-x: hidden;
 }
 .body-container {
-  padding: 2rem;
+  padding:0 2rem 0 2rem;
 }
