@@ -1,0 +1,22 @@
+.container {
+  padding: 6rem;
+}
+.inner_container {
+  padding: 2rem;
+  display: flex;
+  position: relative;
+  border: 1px solid var(--color-black);
+  border-radius: 12px;
+  justify-content: space-between;
+  background-color: var(--color-white);
+}
+.img {
+  border-radius: 12px;
+  width: 48rem;
+  height: 48rem;
+}
+.svg {
+  position: absolute;
+  left: 44%;
+  bottom: -6rem;
+}

@@ -2,9 +2,12 @@ import styles from "./styles.module.css";
 import { Link } from "@tanstack/react-router";
 import logo from "@/assets/logo.svg";
 import menuIcon from "@/assets/icons/menu.svg";
+import Button from "@/components/elements/Button/Button";
+
 export default function Navbar() {
   return (
     <div className={styles.container}>
+      {/* <div> */}
       <div>
         <Link className={styles.link} to="/">
           Menu
@@ -29,10 +32,11 @@ export default function Navbar() {
         <Link className={styles.link} to="/">
           Sign Up
         </Link>
-        <Link className={styles.link_btn} to="/">
-          Show now
-        </Link>
+        <Button>
+          <Link to="/">Show now</Link>
+        </Button>
       </div>
+      {/* </div> */}
     </div>
   );
 }

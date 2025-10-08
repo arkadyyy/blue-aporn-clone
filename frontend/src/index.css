@@ -208,6 +208,7 @@ textarea:not([rows]) {
   --color-green: #229239;
   --color-darkblue: #191446;
   --color-red: #d04e3a;
+  --color-yellow: #ffe4a9;
 }
 
 body {

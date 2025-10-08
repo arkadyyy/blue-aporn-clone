@@ -1,11 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import styles from "./index.module.css";
 import {
-  BrowseMenuCTA,
+  ApronPlusIntroduce,
   Faq,
   MealTypes,
   MealTypesExamples,
   Reviews,
+  ShopNewApron,
   Video,
 } from "@/components";
 
@@ -26,19 +27,12 @@ function Index() {
         </div>
         <Video />
       </div>
-      {/* FAQ */}
       <Faq />
-      {/* meal types */}
       <MealTypes />
-      {/* reviews */}
       <Reviews />
-
-      {/* meals */}
       <MealTypesExamples />
-      {/* blueapron+ big banner  */}
-      <div></div>
-      {/* another banner */}
-      <div></div>
+      <ApronPlusIntroduce />
+      <ShopNewApron />
     </div>
   );
 }

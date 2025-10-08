@@ -5,4 +5,6 @@ export { default as Faq } from "./home-page/Faq/Faq";
 export { default as Reviews } from "./home-page/Reviews/Reviews";
 export { default as BrowseMenuCTA } from "./home-page/BrowseMenuCTA/BrowseMenuCTA";
 export { default as MealTypesExamples } from "./home-page/MealTypesExamples/MealTypesExamples";
+export { default as ApronPlusIntroduce } from "./home-page/ApronPlusIntroduce/ApronPlusIntroduce";
+export { default as ShopNewApron } from "./home-page/ShopNewApron/ShopNewApron";
 // export { default as Footer } from "./Footer/Footer";
