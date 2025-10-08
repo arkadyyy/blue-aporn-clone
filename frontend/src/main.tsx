@@ -4,24 +4,33 @@ import { RouterProvider, createRouter } from "@tanstack/react-router";
 import {
   QueryClient,
   QueryClientProvider,
-  useQuery,
+  queryOptions,
 } from "@tanstack/react-query";
 
-// Import the generated route tree
 import { routeTree } from "./routeTree.gen";
+import type { MealsPayload } from "./types";
+import { fetchMeals } from "./api";
+import { MealsProvider } from "./meals-context";
 
-// Create a new router instance
+
 const router = createRouter({ routeTree });
 
-//
+
 const queryClient = new QueryClient();
 
-// Register the router instance for type safety
+export const mealsQuery = queryOptions<MealsPayload>({
+  queryKey: ["meals"],
+  queryFn: fetchMeals,
+});
+
+
 declare module "@tanstack/react-router" {
   interface Register {
     router: typeof router;
   }
 }
+
+const mealsData: MealsPayload = await fetchMeals();
 
 // Render the app
 const rootElement = document.getElementById("root")!;
@@ -30,7 +39,10 @@ if (!rootElement.innerHTML) {
   root.render(
     <StrictMode>
       <QueryClientProvider client={queryClient}>
+              <MealsProvider value={mealsData}>
+
         <RouterProvider router={router} />
+      </MealsProvider>
       </QueryClientProvider>
     </StrictMode>
   );
