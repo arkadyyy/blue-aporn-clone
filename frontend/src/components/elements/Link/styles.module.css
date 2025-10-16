@@ -1,0 +1,20 @@
+.link {
+  /* font-size: 1em; */
+  color: var(--color-blue);
+  cursor: pointer;
+  text-decoration: none;
+  /* display: grid; */
+  /* place-content: center; */
+}
+.link {
+  /* display: grid; */
+  /* place-content: center; */
+}
+.link h2 {
+  background-color: blueviolet;
+}
+.regular {
+}
+.classic {
+  border-bottom: 1px solid var(--color-blue);
+}

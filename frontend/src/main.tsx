@@ -11,7 +11,7 @@ import {
 import { routeTree } from "./routeTree.gen";
 
 // Create a new router instance
-const router = createRouter({ routeTree });
+export const router = createRouter({ routeTree });
 
 //
 const queryClient = new QueryClient();

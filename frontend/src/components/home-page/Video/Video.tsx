@@ -1,22 +1,39 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type JSX } from "react";
 import videoSrc from "@/assets/video.mp4";
+import { useIsMobile } from "@/hooks";
 
-export default function Video() {
-  const videoRef = useRef<HTMLVideoElement>(null);
+export default function Video({
+  videoRef,
+  children,
+}: {
+  videoRef: React.Ref<HTMLDivElement>;
+  children: JSX.Element;
+}) {
+  const isMobile = useIsMobile();
 
-  // separate states for width and height
-  const [width, setWidth] = useState(16 * 90);
-  const [height, setHeight] = useState(16 * 58);
+  const widthValue = isMobile ? 16 * 22 : 16 * 96;
+  const heightValue = isMobile ? 16 * 40 : 16 * 78;
 
-  // refs to store the target values for smooth animation
+  const [width, setWidth] = useState(widthValue);
+  const [height, setHeight] = useState(heightValue);
+
   const targetWidth = useRef(width);
   const targetHeight = useRef(height);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      targetWidth.current = Math.min(16 * 90 + scrollY * 1.4, 2000);
-      targetHeight.current = Math.min(16 * 58 + scrollY * 1.4, 800);
+
+      //width
+      targetWidth.current = Math.min(
+        +widthValue + scrollY * (isMobile ? 0.2 : 1.4),
+        isMobile ? 600 : 2000
+      );
+      //height
+      targetHeight.current = Math.min(
+        +heightValue + scrollY * (isMobile ? 0.2 : 1.4),
+        isMobile ? 600 : 1000
+      );
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -38,17 +55,19 @@ export default function Video() {
 
   return (
     <div
+      ref={videoRef}
       style={{
         width: `${width}px`,
         height: `${height}px`,
-        borderRadius: "16px",
+        borderRadius: "12px",
         overflow: "hidden",
-        display: "inline-block",
         border: "2px solid black",
+        marginTop: "20rem",
+        backgroundColor: "green",
       }}
     >
+      {children}
       <video
-        ref={videoRef}
         src={videoSrc}
         loop
         muted
@@ -58,7 +77,6 @@ export default function Video() {
           width: "100%",
           height: "100%",
           objectFit: "cover",
-          display: "block",
         }}
       />
     </div>

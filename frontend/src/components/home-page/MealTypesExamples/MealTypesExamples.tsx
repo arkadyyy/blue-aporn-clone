@@ -1,5 +1,5 @@
 import styles from "./styles.module.css";
-import { Link } from "@tanstack/react-router";
+import { Link, Header, Text, Button } from "@/components";
 import plusIcon from "@/assets/icons/plus.svg";
 const exampleMeals = [
   {
@@ -93,40 +93,47 @@ const exampleMeals = [
     jumpUrl: "",
   },
 ];
-function Example({ meal }) {
+function ExampleMeal({ meal }) {
   return (
-    <div className={styles.meal_types_example_card}>
+    <div className={styles.card}>
       <div
-        className={styles.meal_types_example_img_container}
+        className={styles.img_container}
         style={{
           backgroundImage: `url(${meal.img})`,
         }}
       >
-        <button>
+        <Button round type="secondary">
+          {/* <p>asd</p> */}
           <img src={plusIcon} alt="add to cart" />
-        </button>
+        </Button>
       </div>
-      <p className={styles.meal_types_example_label}>{meal.header_label}</p>
-      <p className={styles.meal_types_example_meal_header}>{meal.header}</p>
-      <p className={styles.meal_types_example_price_n_time}>
+      <Text size="sm" className={styles.label}>
+        {meal.header_label}
+      </Text>
+      <Text size="xl" weight="bold" className={styles.meal_header}>
+        {meal.header}
+      </Text>
+      <Text style={{ marginBlock: ".4rem" }}>{meal.desc}</Text>
+      <Text className={styles.price_n_time}>
         ${meal.price}/serv · {meal.time}
-      </p>
+      </Text>
     </div>
   );
 }
 export default function MealTypesExamples() {
   return (
-    <div className={styles.meal_types_example_container}>
-      {/* below div is mapped "looped" */}
+    <div className={styles.container}>
       {exampleMeals.map((section) => (
-        <div className={styles.meal_types_example_border}>
-          <div className={styles.meal_types_example_header}>
-            <h2>{section.header}</h2>
-            <Link to="/menu">See all</Link>
+        <div className={styles.border}>
+          <div className={styles.header}>
+            <Header>{section.header}</Header>
+            <Link type="classic" to="/menu">
+              See all
+            </Link>
           </div>
-          <div className={styles.meal_types_exmaple_cards_container}>
+          <div className={styles.cards_container}>
             {section.meals.map((meal) => (
-              <Example meal={meal} />
+              <ExampleMeal meal={meal} />
             ))}
           </div>
         </div>

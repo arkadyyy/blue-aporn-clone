@@ -1,0 +1,28 @@
+.header {
+  margin-block: 1rem;
+}
+
+/* Sizes */
+.size_sm {
+  font-size: 1.875rem;
+}
+.size_md {
+  font-size: 2rem;
+}
+.size_lg {
+  font-size: 4.25rem;
+}
+.size_xl {
+  font-size: 5.5rem;
+}
+
+/* Weights */
+.weight_regular {
+  font-weight: 400;
+}
+.weight_medium {
+  font-weight: 600;
+}
+.weight_bold {
+  font-weight: 700;
+}

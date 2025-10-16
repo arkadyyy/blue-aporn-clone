@@ -1,14 +1,13 @@
-h2 {
-  &.left_text {
-    font-size: 2em;
-    letter-spacing: 0.12em;
-    text-wrap: pretty;
-  }
+.left_text {
+  font-size: 2em;
+  letter-spacing: 0.02em;
+  text-wrap: pretty;
 }
 
-.faq_container {
+.container {
   background-color: var(--color-lightblue);
   display: flex;
+  gap: 4rem;
   padding-inline: 8rem;
   padding-block: 4rem;
   align-items: flex-start;
@@ -17,18 +16,18 @@ h2 {
   margin-right: calc(50% - 50vw);
 }
 
-.faq_container div {
+.container div {
   flex: 1;
 }
-.faq_container div:first-child {
-  flex: 1.2;
+.container div:first-child {
+  flex: 1;
 }
-.faq_container div:nth-child(2) {
+.container div:nth-child(2) {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
-.faq_container > div > img {
+.container > div > img {
   width: 6em;
   height: 6em;
   position: relative;
@@ -42,6 +41,7 @@ h2 {
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
+  padding: 1rem 0;
   interpolate-size: allow-keywords;
   & h4 {
     font-family: "Volte";
@@ -75,5 +75,23 @@ h2 {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 2rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .container > div > img {
+    width: 6em;
+    height: 6em;
+  }
+  .container div:nth-child(2) {
+    width: 100%;
+  }
+  .section_container {
+    padding: 0;
   }
 }

@@ -1,4 +1,5 @@
-import { Link } from "@tanstack/react-router";
+// import { Link } from "@tanstack/react-router";
+import { Link } from "@/components";
 import styles from "./styles.module.css";
 import { useState } from "react";
 
@@ -35,7 +36,7 @@ function Card({
   handler: (index: number | null) => void;
 }) {
   const { header, text, img, btnText } = meal;
-  const hide = hoveredCard !== index;
+  const hideText = hoveredCard !== index;
   return (
     <div
       onMouseLeave={() => handler(null)}
@@ -47,7 +48,7 @@ function Card({
       </div>
       <h2 className={styles.card_header}>{header}</h2>
       <h2
-        className={`${styles.card_text} ${hoveredCard === null ? "" : hide ? styles.hide_card_text : ""}`}
+        className={`${styles.card_text} ${hoveredCard === null ? "" : hideText ? styles.hide_card_text : ""}`}
       >
         {text}
       </h2>
@@ -64,12 +65,12 @@ export default function MealTypes() {
   };
 
   return (
-    <div className={styles.meal_type_container}>
+    <div className={styles.container}>
       <h3 className={styles.header_label}>NEW ASSORTMENT</h3>
       <h1 className={styles.header}>
         More easy ways to get dinner on the table
       </h1>
-      <Link className={styles.link} to="/menu">
+      <Link type="classic" to="/menu">
         Browse the full menu
       </Link>
       <div className={styles.cards_container}>
@@ -85,4 +86,3 @@ export default function MealTypes() {
     </div>
   );
 }
-MealTypes;

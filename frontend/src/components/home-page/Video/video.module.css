@@ -1,6 +1,7 @@
 .video {
   border-radius: 12px;
-  overflow: clip;
+  /* overflow: clip; */
+  overflow: auto; /* or scroll */
   transition: "all 0.1s ease-out";
   border-radius: 1rem;
   border: 1px solid var(--color-black);

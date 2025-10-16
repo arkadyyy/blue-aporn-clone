@@ -1,4 +1,4 @@
-.reviews_container {
+.container {
   background-color: var(--color-orange);
   width: 100vw;
   padding: 2rem;
@@ -12,7 +12,7 @@
   right: 20px;
   top: -10rem;
 }
-.reviews_heading {
+.heading {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -24,12 +24,13 @@
   font-size: 1em;
   letter-spacing: 0.2em;
   font-weight: 500;
+  margin-block: 1rem;
 }
 .header {
   font-size: 3em;
   margin-top: 0.2em;
 }
-.review_nav_btn {
+.nav_btn {
   width: 3.6rem;
   height: 3.6rem;
   border-radius: 50%;
@@ -40,14 +41,14 @@
   place-content: center;
   background-color: var(--color-white);
 }
-.review_nav_btn:disabled {
+.nav_btn:disabled {
   background-color: rgba(255, 224, 224, 0.3);
 }
-.reviews_buttons_container {
+.buttons_container {
   display: flex;
   gap: 24px;
 }
-.reviews_cards_container {
+.cards_container {
   display: flex;
   gap: 24px;
   flex-wrap: nowrap;
@@ -56,7 +57,7 @@
   width: calc((100% * 2) + 100px); /* enough to fit all slides */
 }
 
-.reviews_card_review {
+.card_review {
   background-color: var(--color-white);
   border: 1px solid var(--color-black);
   border-radius: 1rem;
@@ -67,24 +68,24 @@
 }
 
 /* stars container */
-.reviews_card_review > div {
+.card_review > div {
   display: flex;
   gap: 8px;
 }
 /* star itself */
-.reviews_card_review > div > img {
+.card_review > div > img {
   width: 2rem;
   height: 2rem;
 }
 
 /* === Slider layout === */
-.reviews_slider_wrapper {
+.slider_wrapper {
   overflow: hidden;
   width: 100%;
 }
 
 /* wrap the cards so we can hide overflow */
-.reviews_slider_wrapper {
+.slider_wrapper {
   overflow: hidden;
   width: 100%;
   position: relative;
@@ -92,7 +93,50 @@
 
 /* make it responsive (optional) */
 @media (max-width: 768px) {
-  .reviews_card_review {
-    flex: 0 0 100%;
+  .container {
+    height: 80%;
+    top: 6rem;
+    /* padding: 0; */
+  }
+  .cards_container {
+    overflow: scroll;
+    gap: 1rem;
+    height: 80%;
+    width: auto;
+    padding-inline: 2rem;
+  }
+  .card_review {
+    flex: 0 0 98%;
+    height: 18em;
+  }
+  .container {
+    padding: 0;
+  }
+  .svg_standing {
+    width: 8rem;
+    height: 8rem;
+    top: -8rem;
+  }
+  .nav_btn {
+    display: none;
+  }
+  .heading {
+    padding-inline: 0;
+    padding: 2rem;
+  }
+  .card_review > h2 {
+    font-size: 1.6em;
+    /* letter-spacing: 0.3em; */
+  }
+
+  /* stars container */
+  .card_review > div {
+    display: flex;
+    /* gap: -1px; */
+  }
+  /* star itself */
+  .card_review > div > img {
+    width: 1.6rem;
+    height: 3rem;
   }
 }

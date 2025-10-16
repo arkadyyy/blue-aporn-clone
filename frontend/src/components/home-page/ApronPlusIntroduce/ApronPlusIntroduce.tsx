@@ -1,6 +1,7 @@
 import styles from "./styles.module.css";
 import introduce from "@/assets/img/introduce.webp";
 import tickIcon from "@/assets/icons/tick.svg";
+import { Button, Header, Text } from "@/components";
 const ticks = [
   "Free shipping on every order",
   "Exclusive members-only perks",
@@ -15,19 +16,16 @@ export default function ApronPlusIntroduce() {
       ></div>
       <div className={styles.details_container}>
         <div className={styles.details}>
-          <h2>Introducing Blue Apron+</h2>
-          <h3>Get started with a 30-day free trial.</h3>
-          {ticks.map((tick) => (
-            <div className={styles.tick_container}>
-              <img
-                className={styles.img}
-                style={{ color: "red" }}
-                src={tickIcon}
-              />{" "}
-              <h3>{tick}</h3>
-            </div>
-          ))}
-          <button>Learn more</button>
+          <Header>Introducing Blue Apron+</Header>
+          <Header>Get started with a 30-day free trial.</Header>
+          <div className={styles.tick_container}>
+            {ticks.map((tick) => (
+              <div className={styles.tick}>
+                <Text size="xl">{tick}</Text>
+              </div>
+            ))}
+          </div>
+          <Button to="/">Learn more</Button>
         </div>
       </div>
     </div>

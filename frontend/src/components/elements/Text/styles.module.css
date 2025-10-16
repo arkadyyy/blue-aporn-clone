@@ -1,0 +1,29 @@
+.text {
+  font-family: "Volte";
+  font-weight: 400;
+}
+
+/* Sizes */
+.size_sm {
+  font-size: 0.875rem;
+}
+.size_md {
+  font-size: 1rem;
+}
+.size_lg {
+  font-size: 1.25rem;
+}
+.size_xl {
+  font-size: 1.5rem;
+}
+
+/* Weights */
+.weight_regular {
+  font-weight: 400;
+}
+.weight_medium {
+  font-weight: 600;
+}
+.weight_bold {
+  font-weight: 700;
+}

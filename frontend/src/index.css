@@ -5,6 +5,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
 }
 
 /* Prevent font size inflation */
@@ -26,6 +27,7 @@ blockquote,
 dl,
 dd {
   margin-block-end: 0;
+  margin-block-start: 0;
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
@@ -38,6 +40,8 @@ ol[role="list"] {
 body {
   min-height: 100vh;
   line-height: 1.5;
+
+  /* margin: 10rem; */
 }
 
 /* Set shorter line heights on headings and interactive elements */
@@ -214,7 +218,6 @@ textarea:not([rows]) {
 body {
   background-color: var(--color-cream);
   overflow-x: hidden;
-}
-.body-container {
-  padding:0 2rem 0 2rem;
+  overflow-y: visible;
+  padding-top: 54px;
 }

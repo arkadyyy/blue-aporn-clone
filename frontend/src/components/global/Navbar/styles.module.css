@@ -1,70 +1,104 @@
-.container {
-  /* position: relative; */
+.container_wrapper {
   position: fixed;
-  background-color: var(--color-white);
-  border-radius: 12px;
-  padding: 1rem 3rem;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 52px;
-  /* padding: 0 32px; */
-  display: flex;
+  z-index: 999;
+  display: flex; /* Flex is safer than grid for fixed headers */
+  justify-content: center;
+  padding-top: 2rem;
+}
+.container_wrapper[data-stick="true"] {
+  padding-top: 0rem;
+}
 
+.container[data-stick="false"] {
+  border-radius: 12px;
+  background-color: var(--color-white);
+  padding: 1rem 3rem;
+  width: 96vw;
+  height: 52px;
+  display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 0 auto;
-  top: 2.4rem;
+}
+.container[data-stick="true"] {
+  border-radius: 0px;
+  background-color: var(--color-white);
+  padding: 1rem 3rem;
+  width: 100vw;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  border-bottom: 1px solid gray;
+}
+.link_container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+.logo_container + .link_container {
+  justify-content: right;
 }
 
-img {
+.logo {
   width: 10em;
   height: 10em;
+  height: 100%;
+  flex: 1;
+  /* margin-right: 2rem; */
 }
-.link,
-.link_btn {
-  text-decoration: none;
-  margin: 0rem 1rem;
-  font-family: "Volte";
-  font-weight: 400;
-  color: var(--color-blue);
-  font-size: 1.1em;
-}
-.link_btn {
-  background-color: var(--color-blue);
-  color: var(--color-white);
-  padding: 12px 16px;
-  border-radius: 40px;
-  font-size: 1em;
-}
-.link_btn:hover {
-  background-color: var(--color-black);
-}
+
 .menu_btn {
   background-color: transparent;
   display: none;
+  border: none;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+.menu_btn[data-open="true"] {
+  transform: rotate(90deg); /* or 180deg if you want a full spin */
+  opacity: 0.6;
+  background-color: red;
 }
 .hamburger {
   width: 2rem;
   height: 2rem;
+  transition: transform 0.3s ease;
 }
 
 .logo_container {
   display: flex;
   align-items: center;
-  /* justify-content: center; */
 }
 
 @media (max-width: 768px) {
-  .link,
-  .link_btn {
+  .container_wrapper {
+    padding-top: 0;
+    place-content: start;
+    border-bottom: 1px solid lightgray;
+  }
+
+  .container {
+    border-radius: 0;
+    width: 100vw;
+    display: grid;
+    place-content: center;
+  }
+  .link_container {
     display: none;
   }
   .menu_btn {
-    /* display: inline; */
     display: block;
-    width: 4rem;
-    height: 2rem;
-    background-color: red;
-  }
-  .logo_container {
+    position: relative;
   }
 }

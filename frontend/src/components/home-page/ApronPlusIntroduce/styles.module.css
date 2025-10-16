@@ -17,13 +17,33 @@
 }
 .details {
   position: absolute;
-  left: 10rem;
+  left: 6rem;
   top: 20rem;
 }
+.details > button {
+  margin-top: 3rem;
+  width: 40%;
+}
 .tick_container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.tick {
   display: flex;
   & .img {
     width: 1.2rem;
     height: 1.2rem;
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .details {
+    top: 1rem;
+    left: 2rem;
+    width: 90%;
   }
 }

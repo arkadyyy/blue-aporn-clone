@@ -1,17 +1,31 @@
 .button {
   font-family: "Volte";
-  padding: 12px 16px;
+  padding: 0.8rem 1.4rem;
   border-radius: 40px;
-  font-size: 1em;
+  font-size: 0.9em;
   border: none;
-  width: 220px;
-  margin: 0 auto;
+  cursor: pointer;
+}
+
+.button[data-rounded="true"] {
+  border-radius: 50%;
+  padding: 0.6rem;
+  display: grid;
+  place-content: center;
+  border: none;
+}
+.button > img {
+  width: 1rem;
+  height: 1rem;
 }
 
 .primary {
   color: var(--color-white);
   background-color: var(--color-blue);
   border: none;
+}
+.primary[data-hover="true"]:hover {
+  background-color: var(--color-black);
 }
 .secondary {
   color: var(--color-blue);
