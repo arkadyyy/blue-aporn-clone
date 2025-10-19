@@ -4,6 +4,7 @@ import Navbar from "../components/global/Navbar/Navbar";
 import "../index.css";
 import { Drawer, Footer } from "@/components";
 import { DrawerProvider } from "@/components/global/Drawer/DrawerContext";
+import Modal from "@/components/global/Modal/Modal";
 
 const RootLayout = () => {
   return (
@@ -12,6 +13,7 @@ const RootLayout = () => {
         <Navbar />
         <Drawer />
       </DrawerProvider>
+      <Modal />
 
       <Outlet />
 

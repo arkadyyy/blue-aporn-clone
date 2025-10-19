@@ -7,9 +7,11 @@ import Button from "@/components/elements/Button/Button";
 import { useDrawer } from "../Drawer/DrawerContext";
 import { useFaqScrollStore } from "@/store/useFaqScrollStore";
 import { useRouter } from "@tanstack/react-router";
+import { useModalStore } from "@/store/useModalStore";
 
 export default function Navbar() {
-  const { isOpen, toggleDrawer } = useDrawer();
+  const { isOpen: isDrawerOpen, toggleDrawer } = useDrawer();
+  const { open: openModal } = useModalStore();
   const router = useRouter();
 
   const { pathname } = router.state.location;
@@ -30,15 +32,15 @@ export default function Navbar() {
           <button onClick={() => toggleDrawer()} className={styles.menu_btn}>
             <img
               className={styles.hamburger}
-              src={isOpen ? closeIcon : menuIcon}
-              data-open={isOpen}
+              src={isDrawerOpen ? closeIcon : menuIcon}
+              data-open={isDrawerOpen}
               alt="menu icon"
             />
           </button>
           <img className={styles.logo} src={logo} alt="blue aporn logo" />
         </div>
         <div className={styles.link_container}>
-          <Link to="/">Login</Link>
+          <Link onClick={() => openModal()}>Login</Link>
           <Link to="/">Sign Up</Link>
           <Button to="/menu">Show now</Button>
         </div>

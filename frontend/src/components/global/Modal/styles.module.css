@@ -1,0 +1,43 @@
+.container {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #00000060;
+  z-index: 999;
+  display: grid;
+  place-content: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+.modal {
+  background-color: var(--color-white);
+  min-width: 500px;
+  min-height: 500px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.3 ease;
+  position: relative;
+}
+.close {
+  position: absolute;
+  padding: 3rem 2rem;
+  right: 1px;
+  top: -12px;
+  cursor: pointer;
+}
+.container[data-open="true"] {
+  height: 100vh;
+  overflow: hidden;
+}
+.container[data-open="true"],
+.modal[data-open="true"] {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}

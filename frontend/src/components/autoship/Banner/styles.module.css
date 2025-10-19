@@ -2,13 +2,32 @@
   margin-left: calc(50% -50vw);
   margin-right: calc(50% -50vw);
   background-color: var(--color-lightblue);
+  display: grid;
+  place-content: center;
+  padding-inline: 30vw;
+}
+.content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+  padding-bottom: 2rem;
 }
-.container img {
-  /* margin-left: calc(50% -50vw); */
-  /* margin-right: calc(50% -50vw); */
-  width: 100vw;
+.banner {
+  width: 130vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  display: block;
   height: 120px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-inline: 2rem;
+  }
+  .content {
+    & button {
+      display: none;
+    }
+  }
 }

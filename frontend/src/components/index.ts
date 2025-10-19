@@ -9,6 +9,7 @@ export { default as Accordion } from "./elements/Accordion/Accordion";
 export { default as Navbar } from "./global/Navbar/Navbar";
 export { default as Footer } from "./global/Footer/Footer";
 export { default as Drawer } from "./global/Drawer/Drawer";
+export { default as MobileSignup } from "./global/MobileSignup/MobileSignup";
 
 // home-page
 export { default as Hero } from "./home-page/Hero/Hero";

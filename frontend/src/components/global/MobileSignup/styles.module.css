@@ -1,0 +1,18 @@
+.container {
+  background-color: var(--color-white);
+  height: 16vh;
+  display: none;
+}
+@media (max-width: 768px) {
+  .container {
+    display: grid;
+    place-content: center;
+    position: sticky;
+    bottom: 0;
+    padding: 2rem;
+    & button {
+      width: 70vw;
+      height: 6vh;
+    }
+  }
+}

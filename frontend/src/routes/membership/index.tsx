@@ -1,4 +1,9 @@
-import { MembershipBanner, MembershipFaq, MembershipPerks } from "@/components";
+import {
+  MembershipBanner,
+  MembershipFaq,
+  MembershipPerks,
+  MobileSignup,
+} from "@/components";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/membership/")({
@@ -11,6 +16,7 @@ function RouteComponent() {
       <MembershipBanner />
       <MembershipPerks />
       <MembershipFaq />
+      <MobileSignup />
     </>
   );
 }

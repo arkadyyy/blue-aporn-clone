@@ -3,7 +3,13 @@ import styles from "./styles.module.css";
 import plusIcon from "@/assets/icons/plus.svg";
 import minusIcon from "@/assets/icons/minus.svg";
 
-function Accordion({ data }: { data: { header: string; text: string } }) {
+function Accordion({
+  data,
+  type = "bold",
+}: {
+  data: { header: string; text: string };
+  type?: string;
+}) {
   const [expanded, setExpanded] = useState(false);
   const [animate, setAnimate] = useState(false);
 
@@ -15,7 +21,7 @@ function Accordion({ data }: { data: { header: string; text: string } }) {
     setTimeout(() => setAnimate(false), 600);
   };
   return (
-    <div onClick={toggle} className={styles.section_container}>
+    <div data-type={type} onClick={toggle} className={styles.section_container}>
       <div className={styles.section_header}>
         <h4>{data.header}</h4>
         <span className={`${animate ? styles.spin : ""}`}>

@@ -8,12 +8,12 @@
 
   position: relative;
 }
-.banner + img {
+.banner > img {
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
 }
-/* apron img/logo */
-img + img {
+
+.apron_logo {
   width: 6rem;
   height: 6rem;
   position: absolute;
@@ -30,4 +30,25 @@ img + img {
 }
 .banner_text button {
   width: 12%;
+}
+
+@media (max-width: 768px) {
+  .banner > img:first-child {
+    height: 20vh;
+    object-fit: cover;
+  }
+
+  .apron_logo {
+    width: 5rem;
+    height: 5rem;
+    object-fit: contain;
+    /* margin-top: -5rem; */
+    /* background-color: green; */
+  }
+  .banner_text {
+    /* margin-top: 3rem; */
+  }
+  .banner_text button {
+    display: none;
+  }
 }

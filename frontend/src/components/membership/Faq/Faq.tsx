@@ -1,5 +1,6 @@
 import styles from "./styles.module.css";
-import { Accordion, Header } from "@/components";
+import { Accordion, Button, Header, Link, Text } from "@/components";
+
 const faq = [
   {
     header: "What is the Blue Apron+ Membership?",
@@ -24,8 +25,16 @@ export default function Faq() {
     <div className={styles.container}>
       <Header>FAQs</Header>
       {faq.map((sec) => (
-        <Accordion data={sec} />
+        <Accordion type="light" data={sec} />
       ))}
+      <Text style={{ margin: "2rem 0" }} size="sm">
+        For more information on Blue Apron+ membership, view our full list of
+        FAQs{" "}
+        <Link type="classic" style={{ display: "inline" }} to="/">
+          here
+        </Link>
+        .
+      </Text>
     </div>
   );
 }

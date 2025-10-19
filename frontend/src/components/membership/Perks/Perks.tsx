@@ -4,6 +4,7 @@ import shipping_svg from "@/assets/svg/shipping.svg";
 import styles from "./styles.module.css";
 import Header from "@/components/elements/Header/Header";
 import Text from "@/components/elements/Text/Text";
+import { useIsMobile } from "@/hooks";
 
 const perks = [
   {
@@ -27,11 +28,19 @@ const perks = [
 ];
 
 function Perk({ perk }: { perk: (typeof perks)[0] }) {
+  const isMobile = useIsMobile();
   return (
     <div className={styles.perk_container}>
       <img src={perk.img} alt={`perk ${perk.header} image`} />
-      <Header size="xs">{perk.header}</Header>
-      <Text>{perk.text}</Text>
+      <div>
+        <Text
+          size="md"
+          style={{ marginBlock: isMobile ? "0rem" : "", fontWeight: "500" }}
+        >
+          {perk.header}
+        </Text>
+        <Text>{perk.text}</Text>
+      </div>
     </div>
   );
 }

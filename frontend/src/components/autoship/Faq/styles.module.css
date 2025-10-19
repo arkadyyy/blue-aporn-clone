@@ -1,5 +1,7 @@
 .container {
   padding-inline: 30vw;
+  padding-bottom: 6rem;
+  padding-top: 1rem;
 }
 @media (max-width: 768px) {
   .container {

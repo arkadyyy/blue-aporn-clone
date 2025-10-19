@@ -3,13 +3,19 @@ import { useNavigate } from "@tanstack/react-router";
 import styles from "./styles.module.css";
 import { Text } from "@/components";
 
-type LinkProps = {
-  to: string;
+type LinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+  to?: string;
   type?: "regular" | "classic";
-  children: React.ReactNode;
+  onClick?: () => void;
 };
 
-const Link: React.FC<LinkProps> = ({ to, type = "regular", children }) => {
+const Link: React.FC<LinkProps> = ({
+  to,
+  type = "regular",
+  children,
+  onClick,
+  ...rest
+}) => {
   const navigate = useNavigate();
 
   return (
@@ -17,9 +23,11 @@ const Link: React.FC<LinkProps> = ({ to, type = "regular", children }) => {
       href={to}
       onClick={(e) => {
         e.preventDefault();
-        navigate({ to });
+        if (to) navigate({ to });
+        if (!to && onClick) onClick();
       }}
       className={`${styles.link} ${styles[type]}`}
+      {...rest}
     >
       <Text>{children}</Text>
     </a>
