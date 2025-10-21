@@ -40,7 +40,7 @@ export default function Navbar() {
           <img className={styles.logo} src={logo} alt="blue aporn logo" />
         </div>
         <div className={styles.link_container}>
-          <Link onClick={() => openModal()}>Login</Link>
+          <Link onClick={() => openModal("login-email")}>Login</Link>
           <Link to="/">Sign Up</Link>
           <Button to="/menu">Show now</Button>
         </div>
