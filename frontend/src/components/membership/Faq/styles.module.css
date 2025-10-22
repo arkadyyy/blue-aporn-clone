@@ -1,0 +1,8 @@
+.container {
+  padding-inline: 30vw;
+}
+@media (max-width: 768px) {
+  .container {
+    padding-inline: 2rem;
+  }
+}

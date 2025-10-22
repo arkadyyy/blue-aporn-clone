@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.banner {
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+}
+.banner > img {
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+.apron_logo {
+  width: 6rem;
+  height: 6rem;
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.banner_text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+.banner_text button {
+  width: 12%;
+}
+
+@media (max-width: 768px) {
+  .banner > img:first-child {
+    height: 20vh;
+    object-fit: cover;
+  }
+
+  .apron_logo {
+    width: 5rem;
+    height: 5rem;
+    object-fit: contain;
+    /* margin-top: -5rem; */
+    /* background-color: green; */
+  }
+  .banner_text {
+    /* margin-top: 3rem; */
+  }
+  .banner_text button {
+    display: none;
+  }
+}

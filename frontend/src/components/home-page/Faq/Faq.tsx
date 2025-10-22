@@ -1,8 +1,7 @@
 import ingredients_svg from "@/assets/svg/ingredients.svg";
 import styles from "./styles.module.css";
-import { useState } from "react";
-import plusIcon from "@/assets/icons/plus.svg";
-import minusIcon from "@/assets/icons/minus.svg";
+import { Accordion } from "@/components";
+import type { RefObject } from "react";
 const faq = [
   {
     header: "No subscription needed",
@@ -18,34 +17,15 @@ const faq = [
   },
 ];
 
-function Section({ section }: { section: (typeof faq)[0] }) {
-  const [expanded, setExpanded] = useState(false);
-  const [animate, setAnimate] = useState(false);
-
-  const toggle = () => {
-    setExpanded((prev) => !prev);
-    setAnimate(true);
-
-    // remove animation class after it runs
-    setTimeout(() => setAnimate(false), 600);
-  };
+export default function Faq({
+  ref,
+}: {
+  ref: RefObject<HTMLDivElement | null>;
+}) {
   return (
-    <div onClick={toggle} className={styles.section_container}>
-      <div className={styles.section_header}>
-        <h4>{section.header}</h4>
-        <span className={`${animate ? styles.spin : ""}`}>
-          <img src={expanded ? minusIcon : plusIcon} />
-        </span>
-      </div>
-      <div className={styles.expanded}>{expanded && <p>{section.text}</p>}</div>
-    </div>
-  );
-}
-export default function Faq() {
-  return (
-    <div className={styles.faq_container}>
+    <div ref={ref} className={styles.container}>
       <div>
-        <h2>
+        <h2 className={styles.left_text}>
           Over the years, we've shipped more than 530 million meal kits. Now,
           we're making Blue Apron more convenient than ever.
         </h2>
@@ -53,7 +33,7 @@ export default function Faq() {
       </div>
       <div>
         {faq.map((section) => (
-          <Section section={section} />
+          <Accordion data={section} />
         ))}
       </div>
     </div>

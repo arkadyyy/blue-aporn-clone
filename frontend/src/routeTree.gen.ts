@@ -10,11 +10,23 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as MenuIndexRouteImport } from './routes/menu/index'
+import { Route as MembershipIndexRouteImport } from './routes/membership/index'
+import { Route as AutoshipIndexRouteImport } from './routes/autoship/index'
 import { Route as homePageIndexRouteImport } from './routes/(home-page)/index'
 
 const MenuIndexRoute = MenuIndexRouteImport.update({
   id: '/menu/',
   path: '/menu/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MembershipIndexRoute = MembershipIndexRouteImport.update({
+  id: '/membership/',
+  path: '/membership/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AutoshipIndexRoute = AutoshipIndexRouteImport.update({
+  id: '/autoship/',
+  path: '/autoship/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const homePageIndexRoute = homePageIndexRouteImport.update({
@@ -25,27 +37,35 @@ const homePageIndexRoute = homePageIndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof homePageIndexRoute
+  '/autoship': typeof AutoshipIndexRoute
+  '/membership': typeof MembershipIndexRoute
   '/menu': typeof MenuIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof homePageIndexRoute
+  '/autoship': typeof AutoshipIndexRoute
+  '/membership': typeof MembershipIndexRoute
   '/menu': typeof MenuIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/(home-page)/': typeof homePageIndexRoute
+  '/autoship/': typeof AutoshipIndexRoute
+  '/membership/': typeof MembershipIndexRoute
   '/menu/': typeof MenuIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/menu'
+  fullPaths: '/' | '/autoship' | '/membership' | '/menu'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/menu'
-  id: '__root__' | '/(home-page)/' | '/menu/'
+  to: '/' | '/autoship' | '/membership' | '/menu'
+  id: '__root__' | '/(home-page)/' | '/autoship/' | '/membership/' | '/menu/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   homePageIndexRoute: typeof homePageIndexRoute
+  AutoshipIndexRoute: typeof AutoshipIndexRoute
+  MembershipIndexRoute: typeof MembershipIndexRoute
   MenuIndexRoute: typeof MenuIndexRoute
 }
 
@@ -56,6 +76,20 @@ declare module '@tanstack/react-router' {
       path: '/menu'
       fullPath: '/menu'
       preLoaderRoute: typeof MenuIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/membership/': {
+      id: '/membership/'
+      path: '/membership'
+      fullPath: '/membership'
+      preLoaderRoute: typeof MembershipIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/autoship/': {
+      id: '/autoship/'
+      path: '/autoship'
+      fullPath: '/autoship'
+      preLoaderRoute: typeof AutoshipIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/(home-page)/': {
@@ -70,6 +104,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   homePageIndexRoute: homePageIndexRoute,
+  AutoshipIndexRoute: AutoshipIndexRoute,
+  MembershipIndexRoute: MembershipIndexRoute,
   MenuIndexRoute: MenuIndexRoute,
 }
 export const routeTree = rootRouteImport

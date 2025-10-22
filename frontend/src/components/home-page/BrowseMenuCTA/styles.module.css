@@ -1,4 +1,4 @@
-.browse_menu_cta_container {
+.container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,7 +8,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.browse_menu_cta_container > img {
+.container > img {
   transform: scale(1.2);
 }
 .button {
@@ -28,4 +28,13 @@
 }
 .button:hover {
   background-color: var(--color-white);
+}
+
+@media (max-width: 768px) {
+  .container {
+    top: 110%;
+  }
+  .container > img {
+    transform: scale(0.7);
+  }
 }

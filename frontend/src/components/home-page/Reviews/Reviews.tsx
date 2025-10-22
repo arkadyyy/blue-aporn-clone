@@ -35,7 +35,7 @@ const reviews = [
 
 function Review({ review }: { review: (typeof reviews)[0] }) {
   return (
-    <div className={styles.reviews_card_review}>
+    <div className={styles.card_review}>
       <div>
         {new Array(5).fill(null).map((_) => (
           <img src={star} alt="review star" />
@@ -68,33 +68,33 @@ export default function Reviews() {
         height: "50rem",
       }}
     >
-      <div className={styles.reviews_container}>
+      <div className={styles.container}>
         <img className={styles.svg_standing} src={standing} />
-        <div className={styles.reviews_heading}>
+        <div className={styles.heading}>
           <div>
             <h4 className={styles.header_label}>Over 50,000 5-star reviews</h4>
             <h2 className={styles.header}>What customers are saying</h2>
           </div>
-          <div className={styles.reviews_buttons_container}>
+          <div className={styles.buttons_container}>
             <button
               disabled={leftBtnDisabled}
               onClick={prev}
-              className={styles.review_nav_btn}
+              className={styles.nav_btn}
             >
               <img src={arrow_left} alt="left arrow" />
             </button>
             <button
               disabled={rightBtnDisabled}
               onClick={next}
-              className={styles.review_nav_btn}
+              className={styles.nav_btn}
             >
               <img src={arrow_right} alt="right arrow" />
             </button>
           </div>
         </div>
-        <div className={styles.reviews_slider_wrapper}>
+        <div className={styles.slider_wrapper}>
           <div
-            className={styles.reviews_cards_container}
+            className={styles.cards_container}
             style={{ transform: `translateX(-${index * 51}%)` }}
           >
             {reviews.map((review, i) => (
