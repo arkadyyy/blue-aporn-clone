@@ -1,5 +1,3 @@
-// src/scrape.ts
-import puppeteer from 'puppeteer';
 import * as cheerio from 'cheerio';
 import { getBrowser } from "./puppeteerSingleton.js";
 
@@ -32,7 +30,6 @@ type Meal = {
 const get = (obj: any, ...keys: string[]) =>
   keys.reduce((o, k) => (o && typeof o === 'object' ? o[k] : undefined), obj);
 
-// 1) נסה לחלץ דאטה מוטמעת בסגנון window["__RQ..."].push({queries:[{state:{data:{...}}}]})
 function extractFromEmbeddedData(html: string) {
   const re = /window\["__RQ.*?\]\.push\(\s*(\{.*?\})\s*\);/gs;
   const pushes: any[] = [];
@@ -90,7 +87,6 @@ function extractFromEmbeddedData(html: string) {
     }
   }
 
-  // ייחוד קטגוריות לפי id
   const seen = new Set<string>();
   const uniqCategories = categories.filter(c => {
     if (!c?.id) return true;
@@ -103,7 +99,6 @@ function extractFromEmbeddedData(html: string) {
   return { categories: uniqCategories, meals };
 }
 
-// 2) Fallback: חילוץ בסיסי מה-DOM עם סלקטורים
 function extractWithSelectors(html: string) {
   const $ = cheerio.load(html);
   const itemSel = 'section[aria-label] ul > li, li';
@@ -150,6 +145,6 @@ export async function scrapeMealsLive(url: string) {
 
     return extractFromEmbeddedData(html) || extractWithSelectors(html);
   } finally {
-    await page.close(); // close tab, keep browser
+    await page.close(); 
   }
 }

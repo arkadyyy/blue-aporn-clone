@@ -8,16 +8,13 @@ import {
   Reviews,
   Video,
 } from "@/components";
-import { useMeals } from "@/meals-context";
 
 export const Route = createFileRoute("/(home-page)/")({
   component: Index,
 });
 
 function Index() {
-    const { meals, categories } = useMeals();
-console.log("meals",meals);
-console.log("categories",categories);
+
 
   return (
     <div>
