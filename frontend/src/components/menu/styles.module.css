@@ -6,16 +6,13 @@
 
 
 
-/* horizontal strip of slides */
 .track {
   display: flex;
-  gap: 20px;
 }
 
-/* each slide takes 80% of the width, leaving 20% peeking area */
 .slide {
   flex: 0 0 80%;
-
+  padding-right: 20px;
 }
 
 .slide img {
@@ -25,7 +22,6 @@
   object-fit: cover;
 }
 
-/* arrows */
 .arrow {
   position: absolute;
   top: 25%;

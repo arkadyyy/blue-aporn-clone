@@ -12,28 +12,45 @@ const SIDE_OFFSET = (100 - SLIDE_WIDTH) / 2;
 
 export default function MenuTopSlider() {
   const total = slides.length;
-  const rendered = [slides[slides.length - 1], ...slides, slides[0]];
-  const [index, setIndex] = useState(1);
-  const [isJumping, setIsJumping] = useState(false); // disables transition briefly
+
+const at = (arr: any[], i: number) => arr[(i + arr.length) % arr.length];
+
+
+const rendered = [
+  at(slides, slides.length - 2), 
+  at(slides, slides.length - 1), 
+  ...slides,
+  at(slides, 0),               
+  at(slides, 1),                
+];
+
+const [index, setIndex] = useState(2); 
+
+  const [isJumping, setIsJumping] = useState(false); 
   const [isAnimating, setIsAnimating] = useState(false);
 
-  function handleTransitionEnd() {
-      setIsAnimating(false);             
-    if (index === 0) {
-      setIsJumping(true);
-      requestAnimationFrame(() => {
-        setIndex(total); 
-        requestAnimationFrame(() => setIsJumping(false));
-      });
-    }
-    else if (index === total + 1) {
-      setIsJumping(true);
-      requestAnimationFrame(() => {
-        setIndex(1); // first real
-        requestAnimationFrame(() => setIsJumping(false));
-      });
-    }
+function handleTransitionEnd() {
+  setIsAnimating(false);
+
+  // If we moved to the far left clone area
+  if (index === 1) {
+    setIsJumping(true);
+    requestAnimationFrame(() => {
+      setIndex(slides.length + 1); // jump to last real slide
+      requestAnimationFrame(() => setIsJumping(false));
+    });
   }
+
+  // If we moved to the far right clone area
+  else if (index === slides.length + 2) {
+    setIsJumping(true);
+    requestAnimationFrame(() => {
+      setIndex(2); // jump to first real slide
+      requestAnimationFrame(() => setIsJumping(false));
+    });
+  }
+}
+
 
 
   const next = () => {
@@ -50,11 +67,11 @@ export default function MenuTopSlider() {
   useEffect(() => {
     const interval = setInterval(() => {
       next();
-    }, 1000); // every 1 second
+    }, 1000); 
 
-    // cleanup on unmount
+    
     return () => clearInterval(interval);
-  }, [isAnimating]); // re-run if animation state changes
+  }, [isAnimating]);
   return (
     <section className={styles.container}>
       <button className={`${styles.arrow} ${styles.left}`} onClick={prev}>‹</button>
@@ -62,7 +79,6 @@ export default function MenuTopSlider() {
       <div
         className={styles.track}
         style={{
-          // transform: `translateX(calc(-${index} * 80% + 10%))`,
           transform: `translateX(calc(-${index} * ${SLIDE_WIDTH}% + ${SIDE_OFFSET}%))`,
           transition: isJumping ? 'none' : 'transform 0.5s ease',
         }}
