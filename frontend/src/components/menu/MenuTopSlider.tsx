@@ -1,4 +1,4 @@
-import {  useState } from "react";
+import {  useEffect, useState } from "react";
 import styles from "./styles.module.css";
 
 const slides = [
@@ -46,6 +46,15 @@ export default function MenuTopSlider() {
     setIsAnimating(true);
     setIndex((i) => i - 1);
   }
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      next();
+    }, 1000); // every 1 second
+
+    // cleanup on unmount
+    return () => clearInterval(interval);
+  }, [isAnimating]); // re-run if animation state changes
   return (
     <section className={styles.container}>
       <button className={`${styles.arrow} ${styles.left}`} onClick={prev}>‹</button>
