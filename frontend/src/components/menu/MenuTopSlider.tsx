@@ -11,7 +11,6 @@ const SLIDE_WIDTH = 80; // % of container
 const SIDE_OFFSET = (100 - SLIDE_WIDTH) / 2;
 
 export default function MenuTopSlider() {
-  const total = slides.length;
 
 const at = (arr: any[], i: number) => arr[(i + arr.length) % arr.length];
 

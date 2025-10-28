@@ -1,0 +1,23 @@
+.banner{
+    background-color: #FFE4A9;
+    height: 100px;
+}
+.inner{
+display: flex;
+flex-direction: row;
+}
+.icon{
+    
+  width: 22px;
+  height: 30px;
+
+  color: #369b3d; 
+  margin-right: 8px;
+}
+.icon img{
+
+}
+
+.text{
+    
+}

@@ -1,4 +1,4 @@
-import MenuTopSlider from "@/components/menu/MenuTopSlider";
+import MenuHero from "@/components/menu/menuHero/MenuHero";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/menu/")({
@@ -6,5 +6,5 @@ export const Route = createFileRoute("/menu/")({
 });
 
 function RouteComponent() {
-  return <MenuTopSlider/>;
+  return <MenuHero/>;
 }
