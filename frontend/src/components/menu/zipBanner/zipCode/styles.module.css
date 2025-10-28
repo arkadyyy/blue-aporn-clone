@@ -1,23 +1,28 @@
+.zipInput {
+  display: flex;
+}
+
 .zipInput input {
-    text-align: center;
-    padding: 1x 1px 2px 2px;
 
-    height: 36px;
-    width: 120px;
-    border: 1px solid #0a66c2;
-    border-radius: 4px;
-    background: #fff;
+  text-align: center;
+  padding: 1x 1px 2px 2px;
 
-    font-size: 16px;
-    font-family: inherit;
-    color: #000;
+  height: 36px;
+  width: 120px;
+  border: 1px solid #0a66c2;
+  border-radius: 4px;
+  background: #fff;
 
- 
-    margin: 0;
-    box-sizing: border-box;
+  font-size: 16px;
+  font-family: inherit;
+  color: #000;
 
-    appearance: none;
-    outline: none;
+
+  margin: 0;
+  box-sizing: border-box;
+
+  appearance: none;
+  outline: none;
 }
 
 .input:focus {
@@ -25,3 +30,6 @@
   outline: none;
 }
 
+button {
+  background-color: rgb(24, 80, 220);
+}

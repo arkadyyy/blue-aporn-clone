@@ -1,6 +1,9 @@
 import { useState } from "react";
 import styles from "./styles.module.css";
 import Input from "@/components/elements/Input/Input";
+import hevronRight from "@/assets/svg/hevronRight.svg";
+import Button from "@/components/elements/Button/Button";
+
 export default function ZipCode() {
   const [zip, setZip] = useState("");
 
@@ -16,7 +19,12 @@ export default function ZipCode() {
         inputSize="md"
         align="center"
       />
-
+      {zip.length === 5 &&
+        <Button type="primary" round>
+          <img src={hevronRight} alt="Blue Apron logo" />
+        </Button>
+      }
     </div>
+
   );
 }
