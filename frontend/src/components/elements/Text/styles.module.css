@@ -8,23 +8,34 @@
 .size_sm {
   font-size: 0.875rem;
 }
+
 .size_md {
   font-size: 1rem;
 }
+
+/* 18px */
 .size_lg {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
 }
+
+/* 24px */
 .size_xl {
   font-size: 1.5rem;
+}
+
+.size_xl26 {
+  font-size: 1.625rem;
 }
 
 /* Weights */
 .weight_regular {
   font-weight: 400;
 }
+
 .weight_medium {
   font-weight: 600;
 }
+
 .weight_bold {
   font-weight: 700;
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./styles.module.css";
 
-type TextSize = "sm" | "md" | "lg" | "xl";
+type TextSize = "sm" | "md" | "lg" | "xl" | "xl26";
 type TextWeight = "regular" | "medium" | "bold";
 
 type TextProps<T extends React.ElementType = "p"> = {

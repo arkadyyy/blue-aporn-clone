@@ -20,7 +20,10 @@ export default function ZipCode() {
         align="center"
       />
       {zip.length === 5 &&
-        <Button type="primary" round>
+        <Button type="primary" round
+          onClick={() => console.log("ZIP submitted: shouild be save under local_storage and change the UI till force deleting from there", zip)}
+
+        >
           <img src={hevronRight} alt="Blue Apron logo" />
         </Button>
       }
