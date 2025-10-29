@@ -28,7 +28,7 @@ const Button = ({
   const btnStyles = `${styles.button} ${styles[type]}`;
   const handler = () => {
     if (to) navigate({ to });
-    if (!to) onClick;
+    if (!to) onClick?.();
   };
   return (
     <button

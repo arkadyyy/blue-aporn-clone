@@ -32,7 +32,7 @@ function getValidCache(now = Date.now()): MealsCache | null {
   return null;
 }
 
-app.get("/api/meals", async (req: Request, res: Response) => {
+app.get("/api/meals_origin", async (req: Request, res: Response) => {
   try {
     const force = req.query.refresh === "1";
     const cached = !force ? getValidCache() : null;
