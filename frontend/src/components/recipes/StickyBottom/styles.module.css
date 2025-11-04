@@ -1,0 +1,42 @@
+.container {
+  position: sticky;
+  bottom: 0;
+  height: 8rem;
+  background-color: var(--color-white);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1000%;
+  height: 1px;
+  background: var(--color-lightgray);
+  transform: translateX(-50%);
+}
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+@media (max-width: 768px) {
+  .container {
+    height: 6rem;
+    width: 100%;
+    background-color: #f5f2ea;
+  }
+  .text {
+    display: none;
+  }
+  .buttons {
+    justify-content: space-between;
+
+    width: 100%;
+  }
+  .container::before {
+    width: 100%;
+  }
+}

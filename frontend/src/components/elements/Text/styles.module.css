@@ -1,7 +1,8 @@
 .text {
   font-family: "Volte";
   font-weight: 400;
-  display: inline-block;
+
+  /* display: inline-block; */
 }
 
 /* Sizes */

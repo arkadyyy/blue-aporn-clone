@@ -1,0 +1,63 @@
+.select_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* row layout (2 columns) */
+  gap: 1rem;
+  place-content: center; /* centers the whole grid in the container */
+}
+
+/* When you want it to stack as a column */
+.select_container.column {
+  grid-template-columns: 1fr; /* 1 column */
+  grid-template-rows: auto auto; /* or auto-fit */
+}
+
+.option_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  padding: 1rem;
+}
+.option_container[data-selected="true"] {
+  border: 1px solid var(--color-blue);
+}
+.option_container[data-selected="false"] {
+  border: 1px solid gray;
+}
+
+/* ------ option btn styles */
+
+.option_btn {
+  flex: 1;
+  border: 1px solid;
+  border-radius: 6px;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+.option_btn[data-checked="true"] {
+  border-color: var(--color-lightblue);
+}
+.option_btn[data-checked="false"] {
+  border-color: var(--color-lightgray);
+}
+
+/* Hide the default radio button */
+.option_btn input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: absolute;
+  opacity: 0;
+}
+
+.option_btn img {
+  opacity: 0;
+  transition: opacity 0.14s ease;
+}
+
+.option_btn[data-checked="true"] img {
+  opacity: 1;
+}

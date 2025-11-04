@@ -1,0 +1,13 @@
+.container {
+  padding: 0.4rem 0.8rem;
+  margin-right: 0.4rem;
+}
+.container[data-type="rounded"] {
+  background-color: var(--color-yellow);
+  border-radius: 1rem;
+  display: inline;
+}
+.container[data-type="block"] {
+  background-color: var(--color-orange);
+  display: inline;
+}

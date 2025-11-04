@@ -4,13 +4,18 @@ export { default as Header } from "./elements/Header/Header";
 export { default as Button } from "./elements/Button/Button";
 export { default as Link } from "./elements/Link/Link";
 export { default as Accordion } from "./elements/Accordion/Accordion";
+export { default as Input } from "./elements/Input/Input";
+export { default as Select } from "./elements/Select/Select";
+export { default as Option } from "./elements/Select/Option";
+export { default as Badge } from "./elements/Badge/Badge";
 
 // global
 export { default as Navbar } from "./global/Navbar/Navbar";
 export { default as Footer } from "./global/Footer/Footer";
 export { default as Drawer } from "./global/Drawer/Drawer";
 export { default as MobileSignup } from "./global/MobileSignup/MobileSignup";
-
+export { default as TryApronPlus } from "./global/TryApronPlus/TryApronPlus";
+export { default as Counter } from "./global/Counter/Counter";
 // home-page
 export { default as Hero } from "./home-page/Hero/Hero";
 export { default as Video } from "./home-page/Video/Video";
@@ -32,5 +37,11 @@ export { default as MembershipFaq } from "./membership/Faq/Faq";
 export { default as AutoshipBanner } from "./autoship/Banner/Banner";
 export { default as AutoshipHowItWorks } from "./autoship/HowItWorks/HowItWorks";
 export { default as AutoshipFaq } from "./autoship/Faq/Faq";
+
+//recipes
+export { default as TopSection } from "./recipes/TopSection/TopSection";
+export { default as Ingredients } from "./recipes/Ingredients/Ingredients";
+export { default as Instructions } from "./recipes/Instructions/Instructions";
+export { default as StickyBottom } from "./recipes/StickyBottom/StickyBottom";
 
 //menu
