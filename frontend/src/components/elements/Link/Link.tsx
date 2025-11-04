@@ -7,6 +7,8 @@ type LinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   to?: string;
   type?: "regular" | "classic";
   onClick?: () => void;
+  params?: Record<string, string>;
+  search?: Record<string, string | number | undefined>;
 };
 
 const Link: React.FC<LinkProps> = ({
@@ -14,23 +16,36 @@ const Link: React.FC<LinkProps> = ({
   type = "regular",
   children,
   onClick,
+  params,
+  search,
   ...rest
 }) => {
   const navigate = useNavigate();
 
   return (
-    <a
-      href={to}
+    <Text
       onClick={(e) => {
         e.preventDefault();
-        if (to) navigate({ to });
+        console.log("", params);
+        console.log("params : ", params);
+        if (to) {
+          navigate({
+            to,
+            params,
+            search,
+          });
+        }
+
         if (!to && onClick) onClick();
       }}
       className={`${styles.link} ${styles[type]}`}
       {...rest}
+      as="a"
+      href={to}
     >
-      <Text>{children}</Text>
-    </a>
+      {children}
+    </Text>
   );
 };
+
 export default Link;

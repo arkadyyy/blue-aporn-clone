@@ -205,14 +205,16 @@ textarea:not([rows]) {
 :root {
   --color-cream: #f5f2ea;
   --color-blue: #1850dc;
+  --color-lightblue: #d2ddfc;
   --color-black: #1f1a13;
   --color-white: #ffffff;
-  --color-lightblue: #d2ddfc;
   --color-orange: #e8a946;
   --color-green: #229239;
   --color-darkblue: #191446;
   --color-red: #d04e3a;
   --color-yellow: #ffe4a9;
+  --color-gray: #5f5b54;
+  --color-lightgray: #cdc3b8;
 }
 
 body {

@@ -1,53 +1,76 @@
-import React from "react";
 import styles from "./styles.module.css";
-import Text from "../Text/Text";
+import { Text } from "@/components";
+import eye_open from "@/assets/icons/open_eye.svg";
+import eye_closed from "@/assets/icons/close_eye.svg";
+import { useState } from "react";
 
-type Size = "sm" | "md" | "lg";
-type Align = "left" | "center" | "right";
+type InputProps = {
+  label?: string;
+} & React.DetailedHTMLProps<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  HTMLInputElement
+>;
 
-type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
-    label?: string;
-    error?: string;
-    inputSize?: Size;
-    align?: Align;
-    round?: boolean;
-    className?: string;
-};
+export default function Input({ label, ...rest }: InputProps) {
+  const [showPassword, setShowPassword] = useState(false);
+  const isPasswordType = rest.type === "password";
+  const isPhoneType = rest.type === "phone";
+  const isOtp = rest.type === "otp";
 
-export default function Input({
-    label,
-    error,
-    inputSize = "md",
-    align = "left",
-    round = false,
-    className = "",
-    ...rest
-}: InputProps) {
-    const cls = [
-        styles.input,
-        styles[`size_${inputSize}`],
-        styles[`align_${align}`],
-        round ? styles.round : "",
-        className,
-    ]
-        .filter(Boolean)
-        .join(" ");
+  if (isOtp) return <h2>i am otp input !</h2>;
 
+  if (isPhoneType)
     return (
-        <div className={styles.wrapper}>
-            {label && (
-                <Text as="label" size="sm" weight="medium" className={styles.label}>
-                    {label}
-                </Text>
+      <div>
+        <label className={styles.label}>
+          <Text>{label}</Text>
+          <div className={styles.phone_input_wrapper}>
+            <select className={styles.select} {...rest}>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+            <input
+              placeholder="Enter phone number"
+              className={styles.input}
+              {...rest}
+              type={
+                isPasswordType
+                  ? showPassword
+                    ? "text"
+                    : "password"
+                  : rest.type
+              }
+            />
+          </div>
+        </label>
+      </div>
+    );
+  if (!isPhoneType)
+    return (
+      <div>
+        <label className={styles.label}>
+          <Text>{label}</Text>
+          <div className={styles.input_wrapper}>
+            <input
+              className={styles.input}
+              {...rest}
+              type={
+                isPasswordType
+                  ? showPassword
+                    ? "text"
+                    : "password"
+                  : rest.type
+              }
+            />
+            {isPasswordType && (
+              <img
+                onClick={() => setShowPassword((prev) => !prev)}
+                src={showPassword ? eye_closed : eye_open}
+              />
             )}
-
-            <input className={cls} {...rest} />
-
-            {error && (
-                <Text as="p" size="sm" weight="regular" className={styles.error}>
-                    {error}
-                </Text>
-            )}
-        </div>
+          </div>
+        </label>
+      </div>
     );
 }

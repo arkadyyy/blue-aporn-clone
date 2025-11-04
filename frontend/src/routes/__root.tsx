@@ -5,8 +5,10 @@ import "../index.css";
 import { Drawer, Footer } from "@/components";
 import { DrawerProvider } from "@/components/global/Drawer/DrawerContext";
 import Modal from "@/components/global/Modal/Modal";
+import useBodyScroll from "@/hooks/useBodyScroll";
 
 const RootLayout = () => {
+  useBodyScroll();
   return (
     <>
       <DrawerProvider>

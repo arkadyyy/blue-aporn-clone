@@ -41,7 +41,8 @@ export default function Navbar() {
         </div>
         <div className={styles.link_container}>
           <Link onClick={() => openModal("login-email")}>Login</Link>
-          <Link to="/">Sign Up</Link>
+          <Link onClick={() => openModal("meal")}>meal</Link>
+          <Link onClick={() => openModal("signup")}>Sign Up</Link>
           <Button to="/menu">Show now</Button>
         </div>
       </div>

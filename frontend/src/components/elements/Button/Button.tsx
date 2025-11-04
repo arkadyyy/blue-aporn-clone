@@ -1,23 +1,25 @@
 import type React from "react";
 import styles from "./styles.module.css";
 import { useNavigate } from "@tanstack/react-router";
-
 import { router } from "@/main";
 
 export type AppRoutePath = keyof typeof router.routesByPath;
 
 type ButtonProps = {
   children: React.ReactNode;
-  type?: "primary" | "secondary";
+  appearnceType?: "primary" | "secondary";
   to?: AppRoutePath;
   onClick?: () => void;
   hoverEffect?: boolean;
   round?: boolean;
-};
+} & React.DetailedHTMLProps<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  HTMLButtonElement
+>;
 
 const Button = ({
   children,
-  type = "primary",
+  appearnceType = "primary",
   to,
   onClick,
   hoverEffect = true,
@@ -25,10 +27,11 @@ const Button = ({
   ...rest
 }: ButtonProps) => {
   const navigate = useNavigate();
-  const btnStyles = `${styles.button} ${styles[type]}`;
+  const btnStyles = `${styles.button} ${styles[appearnceType]}`;
+
   const handler = () => {
     if (to) navigate({ to });
-    if (!to) onClick?.();
+    if (!to) onClick!();
   };
   return (
     <button
